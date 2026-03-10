@@ -15,11 +15,14 @@
        
             
             PERFORM UNTIL SALIR = 'S'
+              DISPLAY "-------------------"
+              DISPLAY "SISTEMA BANCARIO"
               DISPLAY "1.CREAR CUENTA"
               DISPLAY "2.CONSULTAR SALDO"
               DISPLAY "3.DEPOSITAR DINERO"
               DISPLAY "4.RETIRAR DINERO"
               DISPLAY "5.SALIR"
+              DISPLAY "-------------------"
               ACCEPT OPCION
                 EVALUATE OPCION
                    WHEN 1
@@ -39,14 +42,37 @@
            STOP RUN. 
             
         CREAR_CUENTA.
-            DISPLAY "AQUI SE CREA LA CUENTA".   
+          *>  DISPLAY "AQUI SE CREA LA CUENTA".   
+           DISPLAY "INGRESE SU NOMBRE".
+           ACCEPT NOMBRE_CLIENTE.
+           DISPLAY "INGRESE SU PRIMER APELLIDO".
+           ACCEPT APELLIDO1_CLIENTE.
+           DISPLAY "INGRESE SU SEGUNDO APELLIDO".
+           ACCEPT APELLIDO2_CLIENTE.
+           DISPLAY "INGRESE SU SALDO INICIAL".
+           ACCEPT SALDO_CLIENTE.
            
         CONSULTAR_SALDO.
-            DISPLAY "AQUI CONSULTO EL SALDO".
+          
+            DISPLAY "SU SALDO ACTUAL ES: " SALDO_CLIENTE.
         DEPOSITAR.
-            DISPLAY "AQUI DEPOSITO DINERO".
+           *> DISPLAY "AQUI DEPOSITO DINERO".
+            DISPLAY "INGRESE LA CANTIDAD A DEPOSITAR".
+            ACCEPT CANTIDAD.
+            COMPUTE SALDO_CLIENTE = SALDO_CLIENTE + CANTIDAD.
+            DISPLAY "DEPOSITO REALIZADO, SU NUEVO SALDO ES: "
+             SALDO_CLIENTE.
         RETIRAR.
-            DISPLAY "AQUI RETIRO DINERO".    
+          *>  DISPLAY "AQUI RETIRO DINERO".    
+            DISPLAY "INGRESE LA CANTIDAD A RETIRAR".
+            ACCEPT CANTIDAD.
+            IF CANTIDAD > SALDO_CLIENTE
+               DISPLAY "FONDOS INSUFICIENTES"
+            ELSE
+               COMPUTE SALDO_CLIENTE = SALDO_CLIENTE - CANTIDAD
+               DISPLAY "RETIRO REALIZADO, SU NUEVO SALDO ES: "
+                SALDO_CLIENTE
+            END-IF.
 
            
             
