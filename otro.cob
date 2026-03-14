@@ -6,5 +6,5 @@
        DATA DIVISION.
 
        PROCEDURE DIVISION.
-           DISPLAY "HOLA es 100 cambio".
+           DISPLAY "HOLA segundo hhh".
            STOP RUN.
