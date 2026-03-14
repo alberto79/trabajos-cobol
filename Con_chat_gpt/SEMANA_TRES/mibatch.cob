@@ -46,6 +46,7 @@
                    END-READ
                END-PERFORM.
                CLOSE ARCHIVO1.
+               CLOSE ARCHIVO2.
                DISPLAY "----------------------".
                DISPLAY "SUMA DE SALDOS: " SUMA.
                 DISPLAY "----------------------".
